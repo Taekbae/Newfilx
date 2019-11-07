@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.js": "/Newfilx/static/js/main.c8975256.chunk.js",
+    "main.js.map": "/Newfilx/static/js/main.c8975256.chunk.js.map",
+    "runtime-main.js": "/Newfilx/static/js/runtime-main.0dee1c2a.js",
+    "runtime-main.js.map": "/Newfilx/static/js/runtime-main.0dee1c2a.js.map",
+    "static/js/2.7bf3d37e.chunk.js": "/Newfilx/static/js/2.7bf3d37e.chunk.js",
+    "static/js/2.7bf3d37e.chunk.js.map": "/Newfilx/static/js/2.7bf3d37e.chunk.js.map",
+    "index.html": "/Newfilx/index.html",
+    "precache-manifest.e040772fb6eb71b8b5b60a5ac49b1bea.js": "/Newfilx/precache-manifest.e040772fb6eb71b8b5b60a5ac49b1bea.js",
+    "service-worker.js": "/Newfilx/service-worker.js"
+  }
+}
