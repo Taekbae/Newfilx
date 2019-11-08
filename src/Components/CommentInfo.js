@@ -51,6 +51,7 @@ const Comment = styled.div`
 `;
 
 const EditButton = styled.button`
+  margin: auto;
   display: block;
   width: 40px;
   height: 17px;
@@ -63,6 +64,7 @@ const EditButton = styled.button`
 `;
 
 const Button = styled.button`
+  margin: auto;
   display: block;
   width: 55px;
   height: 17px;
