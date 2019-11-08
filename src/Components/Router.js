@@ -18,36 +18,13 @@ export default () => (
     <>
       <Header />
       <Switch>
-        <Route
-          path="https://taekbae.github.io/Newfilx/"
-          exact
-          component={Home}
-        />
-        <Route
-          path="https://taekbae.github.io/Newfilx/tv"
-          exact
-          component={TV}
-        />
-        <Route
-          path="https://taekbae.github.io/Newfilx/search"
-          component={Search}
-        />
-        <Route
-          path="https://taekbae.github.io/Newfilx/movie/:id"
-          component={Detail}
-        />
-        <Route
-          path="https://taekbae.github.io/Newfilx/show/:id/seasons/:season_number"
-          component={Seasons}
-        />
-        <Route
-          path="https://taekbae.github.io/Newfilx/show/:id"
-          component={Detail}
-        />
-        <Route
-          path="https://taekbae.github.io/Newfilx/collections/:id"
-          component={Collections}
-        />
+        <Route path="/" exact component={Home} />
+        <Route path="/tv" exact component={TV} />
+        <Route path="/search" component={Search} />
+        <Route path="/movie/:id" component={Detail} />
+        <Route path="/show/:id/seasons/:season_number" component={Seasons} />
+        <Route path="/show/:id" component={Detail} />
+        <Route path="/collections/:id" component={Collections} />
         <Redirect from="*" to="/" />
       </Switch>
     </>
