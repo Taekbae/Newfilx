@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/Newfilx/static/js/main.f54ff152.chunk.js",
-    "main.js.map": "/Newfilx/static/js/main.f54ff152.chunk.js.map",
+    "main.js": "/Newfilx/static/js/main.e6c5641e.chunk.js",
+    "main.js.map": "/Newfilx/static/js/main.e6c5641e.chunk.js.map",
     "runtime-main.js": "/Newfilx/static/js/runtime-main.0dee1c2a.js",
     "runtime-main.js.map": "/Newfilx/static/js/runtime-main.0dee1c2a.js.map",
     "static/js/2.7bf3d37e.chunk.js": "/Newfilx/static/js/2.7bf3d37e.chunk.js",
     "static/js/2.7bf3d37e.chunk.js.map": "/Newfilx/static/js/2.7bf3d37e.chunk.js.map",
     "index.html": "/Newfilx/index.html",
-    "precache-manifest.0e6b4467698c20eae3c2c693e3a23e96.js": "/Newfilx/precache-manifest.0e6b4467698c20eae3c2c693e3a23e96.js",
+    "precache-manifest.5fb1b16dc0cc2bec1641d0a607b4f3a1.js": "/Newfilx/precache-manifest.5fb1b16dc0cc2bec1641d0a607b4f3a1.js",
     "service-worker.js": "/Newfilx/service-worker.js"
   }
 }
