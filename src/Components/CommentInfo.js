@@ -30,6 +30,7 @@ const CommentInputBody = styled.input`
   width: 50%;
   height: 30px;
   margin: 5px;
+  margin-right: 10px;
   padding: 5px;
   color: #3f3f3f;
 
@@ -50,6 +51,9 @@ const Comment = styled.div`
 `;
 
 const EditButton = styled.button`
+  display: block;
+  width: 40px;
+  height: 17px;
   border: none;
   background-color: #76b900;
   border-radius: 0.1rem;
@@ -59,12 +63,18 @@ const EditButton = styled.button`
 `;
 
 const Button = styled.button`
+  display: block;
+  width: 55px;
+  height: 17px;
   border: none;
   background-color: #e74c3c;
   border-radius: 0.1rem;
   color: white;
   opacity: 0.7;
-  margin-right: 5px;
+`;
+
+const BtnContainer = styled.div`
+  display: flex;
 `;
 
 export default class extends React.Component {
@@ -134,8 +144,10 @@ export default class extends React.Component {
             placeholder="Comment"
             onChange={this.handleChange}
           />
-          <EditButton onClick={this.handleToggleEdit}>Edit</EditButton>
-          <Button onClick={this.handleRemove}>Delete</Button>
+          <BtnContainer>
+            <EditButton onClick={this.handleToggleEdit}>Edit</EditButton>
+            <Button onClick={this.handleRemove}>Delete</Button>
+          </BtnContainer>
         </CommentContainer>
       );
     }
@@ -144,8 +156,10 @@ export default class extends React.Component {
       <CommentContainer>
         <Name>{name}</Name>
         <Comment>{comment}</Comment>
-        <EditButton onClick={this.handleToggleEdit}>Edit</EditButton>
-        <Button onClick={this.handleRemove}>Delete</Button>
+        <BtnContainer>
+          <EditButton onClick={this.handleToggleEdit}>Edit</EditButton>
+          <Button onClick={this.handleRemove}>Delete</Button>
+        </BtnContainer>
       </CommentContainer>
     );
   }
