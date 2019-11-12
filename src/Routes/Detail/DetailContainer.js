@@ -42,11 +42,17 @@ export default class extends React.Component {
     let { commentlist } = this.state;
     if (localStorage.getItem(this.state.id)) {
       commentlist = JSON.parse(localStorage.getItem(this.state.id));
+      commentlist.push({
+        id: commentlist[commentlist.length - 1].id + 1,
+        ...data
+      });
+    } else {
+      commentlist.push({ id: Object.keys(commentlist).length++, ...data });
     }
 
     this.setState(
       {
-        commentlist: commentlist.concat({ id: this.id++, ...data })
+        commentlist: commentlist
       },
       () => {
         localStorage.setItem(
@@ -56,16 +62,37 @@ export default class extends React.Component {
         this.setState(this.state);
       }
     );
+
+    // this.setState(
+    //   {
+    //     commentlist: commentlist.concat({
+    //       id:Object.keys(commentlist).length++,
+    //       ...data
+    //     })
+    //   },
+    //   () => {
+    //     localStorage.setItem(
+    //       this.state.id,
+    //       JSON.stringify(this.state.commentlist)
+    //     );
+    //     this.setState(this.state);
+    //   }
+    // );
   };
 
   handleRemove = id => {
     let { commentlist } = this.state;
+    if (localStorage.getItem(this.state.id)) {
+      commentlist = JSON.parse(localStorage.getItem(this.state.id));
+    }
+    const commentlist_arr = commentlist.filter(info => info.id !== id);
+
     this.setState(
       {
-        commentlist: commentlist.filter(info => info.id !== id)
+        commentlist: commentlist_arr
       },
       () => {
-        localStorage.setItem(this.state.id, JSON.stringify(commentlist));
+        localStorage.setItem(this.state.id, JSON.stringify(commentlist_arr));
         this.setState(this.state);
       }
     );
@@ -76,6 +103,7 @@ export default class extends React.Component {
     if (localStorage.getItem(this.state.id)) {
       commentlist = JSON.parse(localStorage.getItem(this.state.id));
     }
+
     this.setState(
       {
         commentlist: commentlist.map(info =>
@@ -111,11 +139,6 @@ export default class extends React.Component {
       ].key
     });
   };
-
-  resizeIframe(obj) {
-    obj.style.width = obj.contentWindow.document.body.scrollWidth + "px";
-    obj.style.height = obj.contentWindow.document.body.scrollHeight + "px";
-  }
 
   async componentDidMount() {
     const {
@@ -220,7 +243,6 @@ export default class extends React.Component {
         handleSubmit={this.handleSubmit}
         handleRemove={this.handleRemove}
         handleUpdate={this.handleUpdate}
-        resizeIframe={this.resizeIframe}
       />
     );
   }
