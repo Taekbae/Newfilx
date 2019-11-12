@@ -41,14 +41,11 @@ const YoutubeForeground = styled.div`
   filter: blur(5px);
   opacity: 0.2;
 
-  @media (min-aspect-ratio: 16/9) {
-    height: 300%;
+  @media {
     top: -100%;
-  }
-
-  @media (min-aspect-ratio: 16/9) {
-    width: 300%;
     left: -100%;
+    width: 300%;
+    height: 300%;
   }
 `;
 
@@ -72,6 +69,11 @@ const Content = styled.div`
   position: relative;
   z-index: 1;
   height: 100%;
+
+  @media (max-width: 800px) {
+    flex-wrap: wrap;
+    text-align: center;
+  }
 `;
 
 const Cover = styled.div`
@@ -80,17 +82,37 @@ const Cover = styled.div`
   background-position: center center;
   background-size: cover;
   height: 100%;
+
+  @media (max-width: 800px) {
+    width: 100%;
+    transition: 0.5s ease-in-out;
+  }
+
+  @media (min-width: 800px) {
+    width: 30%;
+    transition: 0.5s ease-in-out;
+  }
 `;
 
 const Data = styled.div`
   width: 70%;
   margin-left: 50px;
+
+  @media (max-width: 800px) {
+    width: 90%;
+    margin-top: 4vw;
+    margin-left: 5vw;
+  }
 `;
 
 const Title = styled.h3`
-  font-size: 35px;
+  font-size: 2.3vw;
   margin-bottom: 10px;
   font-weight: 600;
+
+  @media (max-width: 800px) {
+    font-size: 6vw;
+  }
 `;
 
 const ItemContainer = styled.div`
@@ -98,7 +120,11 @@ const ItemContainer = styled.div`
 `;
 
 const Item = styled.span`
-  font-size: 18px;
+  font-size: 1.2vw;
+
+  @media (max-width: 800px) {
+    font-size: 3vw;
+  }
 `;
 
 const Divider = styled.span`
@@ -106,10 +132,16 @@ const Divider = styled.span`
 `;
 
 const Overview = styled.p`
-  font-size: 14px;
+  font-size: 1vw;
   opacity: 0.7;
   line-height: 1.5;
-  width: 60%;
+  width: 80%;
+
+  @media (max-width: 800px) {
+    width: 100%;
+    font-size: 2vw;
+    margin-bottom: 1.3vw;
+  }
 `;
 
 const TabMenu = styled.div`
@@ -121,21 +153,35 @@ const TabMenu = styled.div`
 
 const List = styled.ul`
   display: flex;
+  align-items: center;
+  @media (max-width: 800px) {
+    font-size: 2vw;
+  }
 `;
 
 const TabItem = styled.li`
-  width: 120px;
+  width: 12%;
   height: 50px;
-  line-height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  margin-right: 20px;
+  margin-right: 2vw;
   border-bottom: 3px solid
     ${props => (props.current ? "#76b900" : "transparent")};
   transition: border-bottom 0.5s ease-in-out;
   cursor: pointer;
+  font-size: 0.8vw;
+
+  @media (max-width: 800px) {
+    width: 100%;
+    font-size: 2vw;
+  }
 `;
 
-const TabContainer = styled.div``;
+const TabContainer = styled.div`
+  height: 25vh;
+`;
 
 const TabContent = styled.div`
   width: 100%;
@@ -143,32 +189,55 @@ const TabContent = styled.div`
 `;
 
 const TabSubtitle = styled.div`
-  font-size: 20px;
-  margin-bottom: 10px;
+  font-size: 1.3vw;
+  margin-bottom: 1vw;
   font-weight: 400;
   display: block;
+
+  @media (max-width: 800px) {
+    font-size: 3vw;
+    text-align: center;
+    margin-bottom: 2vw;
+  }
 `;
+
 const YoutubeMain = styled.iframe`
   float: left;
   width: 60%;
-  height: 500px;
+  height: 45vh;
   padding: 0 10px;
   margin-left: -10px;
   margin-right: 20px;
+
+  @media (max-width: 800px) {
+    margin-bottom: 4vw;
+    width: 100%;
+    height: 40vh;
+    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
 `;
 
 const VideoThumb = styled.img`
   background-color: rgba(100, 100, 100, 0.3);
   border-radius: 2px;
   z-index: 10;
-  padding: 3px;
+  padding: 2px;
   box-shadow: 0px 1px 5px 2px rgba(20, 20, 20, 0.2);
   display: inline-block;
-  width: 150px;
+  width: 9vw;
+  max-width: 130px;
   height: auto;
   background-size: cover;
   cursor: pointer;
   margin: 2px;
+
+  @media (max-width: 800px) {
+    width: 20vw;
+    margin: 0.5vw;
+    padding: 2px;
+  }
 `;
 
 const YoutubeList = styled.ul``;

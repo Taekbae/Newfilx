@@ -39,7 +39,11 @@ export default class extends React.Component {
   };
 
   handleCreate = data => {
-    const { commentlist } = this.state;
+    let { commentlist } = this.state;
+    if (localStorage.getItem(this.state.id)) {
+      commentlist = JSON.parse(localStorage.getItem(this.state.id));
+    }
+
     this.setState(
       {
         commentlist: commentlist.concat({ id: this.id++, ...data })
@@ -55,7 +59,7 @@ export default class extends React.Component {
   };
 
   handleRemove = id => {
-    const { commentlist } = this.state;
+    let { commentlist } = this.state;
     this.setState(
       {
         commentlist: commentlist.filter(info => info.id !== id)
@@ -68,7 +72,10 @@ export default class extends React.Component {
   };
 
   handleUpdate = (id, data) => {
-    const { commentlist } = this.state;
+    let { commentlist } = this.state;
+    if (localStorage.getItem(this.state.id)) {
+      commentlist = JSON.parse(localStorage.getItem(this.state.id));
+    }
     this.setState(
       {
         commentlist: commentlist.map(info =>
@@ -104,6 +111,11 @@ export default class extends React.Component {
       ].key
     });
   };
+
+  resizeIframe(obj) {
+    obj.style.width = obj.contentWindow.document.body.scrollWidth + "px";
+    obj.style.height = obj.contentWindow.document.body.scrollHeight + "px";
+  }
 
   async componentDidMount() {
     const {
@@ -153,16 +165,21 @@ export default class extends React.Component {
       const { isMovie } = this.state;
       const parsedId = parseInt(id);
       let result = null;
+      let recommend = null;
       try {
         if (isMovie) {
           ({ data: result } = await moviesApi.movieDetail(parsedId));
+          ({ data: recommend } = await moviesApi.movieSimilar(parsedId));
         } else {
           ({ data: result } = await tvApi.showDetail(parsedId));
+          ({ data: recommend } = await tvApi.showSimilar(parsedId));
         }
       } finally {
         this.setState({
           loading: false,
-          result
+          result,
+          recommend,
+          current: "youtube"
         });
       }
     }
@@ -203,6 +220,7 @@ export default class extends React.Component {
         handleSubmit={this.handleSubmit}
         handleRemove={this.handleRemove}
         handleUpdate={this.handleUpdate}
+        resizeIframe={this.resizeIframe}
       />
     );
   }

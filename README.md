@@ -1,6 +1,6 @@
 # Newfilx
 
-Movie Discovery App
+🎬 Movie Discovery App
 
 ## Screens
 
@@ -8,6 +8,8 @@ Movie Discovery App
 - TV Shows
 - Search
 - Detail
+- Collections
+- Seasons
 
 ## API Verbs
 
@@ -19,10 +21,13 @@ Movie Discovery App
 - ✔️ TV Show Detail
 - ✔️ Movie Detail
 - ✔️ Search Movie & TV
+- ✔️ Recommendation (TV, Movie)
 
 ## TO DO
 
+- ✔️ Tab Menu
 - ✔️ Background Video in Detail page
-- ✔️ Comment with Local Storage
+- ✔️ Comment with Local Storage (Create, Read, Update, Delete)
 - ✔️ Video Thumbnail
+- ✔️ Responsive CSS
 - 🚧 Infinite Scroll

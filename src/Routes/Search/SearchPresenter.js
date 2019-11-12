@@ -16,10 +16,23 @@ const Form = styled.form`
   width: 100%;
 `;
 
+const InputContainer = styled.div`
+  padding: 5px 0;
+  border-bottom: 1px solid #575756;
+  opacity: 0.5;
+  transition: all 200ms ease-in;
+
+  &:hover,
+  &:focus {
+    opacity: 1;
+  }
+`;
+
 const Input = styled.input`
   all: unset;
   font-size: 28px;
   width: 100%;
+  background-image: url(http://mihaeltomic.com/codepen/input-search/ic_search_black_24px.svg);
 `;
 
 const SearchPresenter = ({
@@ -37,11 +50,13 @@ const SearchPresenter = ({
       <title>Search | Newflix</title>
     </Helmet>
     <Form onSubmit={handleSubmit}>
-      <Input
-        placeholder="Search Movies and TV Shows"
-        value={searchTerm}
-        onChange={updateTerm}
-      />
+      <InputContainer>
+        <Input
+          placeholder="Search Movies and TV Shows..."
+          value={searchTerm}
+          onChange={updateTerm}
+        />
+      </InputContainer>
     </Form>
     {loading ? (
       <Loader />

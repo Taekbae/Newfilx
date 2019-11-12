@@ -32,6 +32,11 @@ const Content = styled.div`
   position: relative;
   z-index: 1;
   height: 100%;
+
+  @media (max-width: 800px) {
+    flex-wrap: wrap;
+    text-align: center;
+  }
 `;
 
 const Cover = styled.div`
@@ -40,17 +45,37 @@ const Cover = styled.div`
   background-position: center center;
   background-size: cover;
   height: 100%;
+
+  @media (max-width: 800px) {
+    width: 100%;
+    transition: 0.5s ease-in-out;
+  }
+
+  @media (min-width: 800px) {
+    width: 30%;
+    transition: 0.5s ease-in-out;
+  }
 `;
 
 const Data = styled.div`
   width: 70%;
   margin-left: 50px;
+
+  @media (max-width: 800px) {
+    width: 90%;
+    margin-top: 4vw;
+    margin-left: 5vw;
+  }
 `;
 
 const Title = styled.h3`
-  font-size: 35px;
+  font-size: 2.3vw;
   margin-bottom: 10px;
   font-weight: 600;
+
+  @media (max-width: 800px) {
+    font-size: 6vw;
+  }
 `;
 
 const ItemContainer = styled.div`
@@ -58,14 +83,24 @@ const ItemContainer = styled.div`
 `;
 
 const Item = styled.span`
-  font-size: 18px;
+  font-size: 1.2vw;
+
+  @media (max-width: 800px) {
+    font-size: 3vw;
+  }
 `;
 
 const Overview = styled.p`
-  font-size: 14px;
+  font-size: 1vw;
   opacity: 0.7;
   line-height: 1.5;
   width: 60%;
+
+  @media (max-width: 800px) {
+    width: 100%;
+    font-size: 2vw;
+    margin-bottom: 1.3vw;
+  }
 `;
 
 const TabMenu = styled.div`
@@ -77,21 +112,36 @@ const TabMenu = styled.div`
 
 const List = styled.ul`
   display: flex;
+  align-items: center;
+
+  @media (max-width: 800px) {
+    font-size: 2vw;
+  }
 `;
 
 const TabItem = styled.li`
-  width: 120px;
+  width: 12%;
   height: 50px;
-  line-height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  margin-right: 20px;
+  margin-right: 2vw;
   border-bottom: 3px solid
     ${props => (props.current ? "#76b900" : "transparent")};
   transition: border-bottom 0.5s ease-in-out;
   cursor: pointer;
+  font-size: 0.7vw;
+
+  @media (max-width: 800px) {
+    width: 100%;
+    font-size: 2vw;
+  }
 `;
 
-const TabContainer = styled.div``;
+const TabContainer = styled.div`
+  height: 25vh;
+`;
 
 const TabContent = styled.div`
   width: 100%;
@@ -108,7 +158,8 @@ const CompanyContainer = styled.div`
 const CompanyLogo = styled.div`
   display: inline-block;
   width: 100%;
-  height: 110px;
+  height: 77px;
+  overflow: hidden;
   background-image: url(${props => props.companyImg});
   background-repeat: no-repeat;
   background-position: center center;
@@ -186,67 +237,6 @@ const SeasonsPresenter = ({ showResult, result, loading, error }) =>
       </Content>
     </Container>
   );
-
-// loading ? (
-//   <>
-//     <Helmet>
-//       <title>Loading | Newfilx</title>
-//     </Helmet>
-//     <Loader />
-//   </>
-// ) : error ? (
-//   <Message />
-// ) : (
-//   <Container>
-//     {showResult.name}
-//     {/* <Helmet>
-//       <title>{result.name} | Newfilx</title>
-//     </Helmet>
-//     <Content>
-//       <Cover
-//         bgImage={
-//           result.poster_path
-//             ? `https://image.tmdb.org/t/p/original${result.poster_path}`
-//             : require("../../assets/poster-small.png")
-//         }
-//       />
-//       <Data>
-//         <Title>
-//           {showResult.name} {result.name}
-//         </Title>
-//         <ItemContainer>
-//           <Item>{result.air_date}</Item>
-//         </ItemContainer>
-//         <Overview>{result.overview}</Overview>
-//         <TabContainer>
-//           <TabMenu>
-//             <List>
-//               <TabItem>Episode</TabItem>
-//               <TabContent>
-//                 {result.episodes && result.episodes.length > 0 ? (
-//                   result.episodes.map((episode, i) => (
-//                     <CompanyContainer>
-//                       <CompanyLogo
-//                         companyImg={
-//                           episode.still_path &&
-//                           `https://image.tmdb.org/t/p/w300${episode.still_path}`
-//                         }
-//                         data-tip={episode.name}
-//                       />
-//                       <ReactTooltip />
-//                     </CompanyContainer>
-//                   ))
-//                 ) : (
-//                   <TabText>Sorry, Can't find Episodes!</TabText>
-//                 )}
-//               </TabContent>
-//             </List>
-//           </TabMenu>
-//         </TabContainer>
-//       </Data>
-//     </Content> */}
-//   </Container>
-// );
 
 SeasonsPresenter.propTypes = {
   result: PropTypes.object,
