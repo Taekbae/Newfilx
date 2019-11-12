@@ -40,7 +40,10 @@ export default class extends React.Component {
 
   handleCreate = data => {
     let { commentlist } = this.state;
-    if (localStorage.getItem(this.state.id)) {
+    if (
+      localStorage.getItem(this.state.id) &&
+      localStorage.getItem(this.state.id).length !== 2
+    ) {
       commentlist = JSON.parse(localStorage.getItem(this.state.id));
       commentlist.push({
         id: commentlist[commentlist.length - 1].id + 1,
